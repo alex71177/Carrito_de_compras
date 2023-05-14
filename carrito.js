@@ -6,7 +6,7 @@ let mensajetienda  = document.getElementById("titulo")
 setTimeout(() => {
     mensajetienda.innerText="Tienda en linea "
     new TypeIt("#mensaje1", {
-        strings:  "Compra hoy y lleva un descuento",
+        strings:  `Compra hoy y lleva un descuento`,
    }).go();
  
 }, 2600);
@@ -14,8 +14,10 @@ setTimeout(() => {
 
 
 const ver__producto =[]
+const reducir__prodcuto = producto.slice(0,8)
+const produto__repetido = new Set(reducir__prodcuto)
 
-producto.forEach(e =>{
+produto__repetido.forEach(e =>{
     const lista__productos =document.createElement("div")
     lista__productos.classList.add("lista__productos")
     lista__productos.innerHTML=`
@@ -45,11 +47,29 @@ console.log(ver__producto)
 })
 
 ver__carrito__compras.addEventListener("click",()=>{
-if (btnboton !="") {
-    ver__listado__carrito__compras.append( ver__producto) 
-}
-    console.log("ver compras")
+const contenedor__compras = document.createElement("div")
+contenedor__compras.classList.add("modal")
+contenedor__compras.innerHTML = `<br>   <div class="titulo__contenedor__compras">  <h2 >Productos comprados </h2> 
+<div> <a href="" id="cerrar" class"cerrar">x</a>
+</div> </div> 
+`
+carrito__compras.append(contenedor__compras) 
 
+
+
+const modal = document.querySelector(".modal")
+window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+  
+  const cerrar = document.getElementById("cerrar")
+
+  cerrar.accessKeyLabel("click",function () {
+    
+    cerrar.close()
+  })
 })
 
 
