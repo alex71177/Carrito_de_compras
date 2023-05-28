@@ -8,10 +8,19 @@ body{
 }
 .info{
     display: flex;
-    justify-content: space-between;
+    justify-content: last baseline;
     align-items: center;
+    gap: 200px;
 }
-
+input{
+    width: 20%;
+    height: 4vh;
+    margin-left: 20px;
+    outline: none;
+}
+input:hover{
+    border: solid 4px green;
+}
 header{
     text-align: center;
     padding: 1rem;
@@ -207,25 +216,22 @@ display: flex;
 justify-content: space-between;
 
 }
-
+.titulo__modal,.precio__modal{
+    text-align: center;
+}
 .modal{
     background: teal;
-    width: 87%;
-    height: 30vh;
+    width: 40%;
     position: fixed;
     z-index: 1;
-    margin-left: 20px; 
+    margin-left: 760px; 
 }
 a  .cerrar{
     font-size: 40px;
 
 }
-input{
-    width: 20%;
-    height: 4vh;
-    margin-left: 20px;
- 
-}
+
+
 .modal a{
     font-size: 40px;
     margin: -50px -20px ;

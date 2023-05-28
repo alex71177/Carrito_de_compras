@@ -1,7 +1,17 @@
 const carrito__compras= document.getElementById("carrito__compras")
 const ver__carrito__compras  =document.getElementById("ver__carrito__compras")
 const ver__listado__carrito__compras = document.getElementById("ver__listado__carrito__compras")
-let mensajetienda  = document.getElementById("titulo")
+const buscar = document.getElementById("buscar")
+const mensajetienda  = document.getElementById("titulo")
+window.addEventListener("DOMContentLoaded",function() {
+  console.log("cargado")
+})
+
+window.addEventListener("keyup",function() {
+  console.log(buscar.value)
+})
+
+
 
 setTimeout(() => {
     mensajetienda.innerText="Tienda en linea "
@@ -14,7 +24,7 @@ setTimeout(() => {
 
 
 const ver__producto =[]
-const reducir__prodcuto = producto.slice(0,8)
+const reducir__prodcuto = producto.slice(0,12)
 const produto__repetido = new Set(reducir__prodcuto)
 
 produto__repetido.forEach(e =>{
@@ -27,10 +37,15 @@ produto__repetido.forEach(e =>{
     $<span class="precio__producto">${e.price} </span><br>`;
     carrito__compras.append(lista__productos)
 
+    // const audio = document.getElementById("audio")
+    // function escchaAudio(){
+    //   audio.play()
+    // }
 
     const btnboton =document.createElement("button")
     btnboton.classList.add("btnboton")
     btnboton.innerText="guardar"
+    
     lista__productos.append(btnboton)
 
     btnboton.addEventListener("click" ,()=>{
@@ -39,6 +54,7 @@ produto__repetido.forEach(e =>{
     e.title,
     e.price,
     e.description
+    
     
 );
 console.log(ver__producto)
@@ -55,6 +71,21 @@ contenedor__compras.innerHTML = `<br>   <div class="titulo__contenedor__compras"
 `
 carrito__compras.append(contenedor__compras) 
 
+ver__producto.forEach(mod =>{
+
+  const container_modal =document.createElement("div")
+  container_modal.classList.add("container__producto__modal")
+
+  container_modal.innerHTML+=`
+  <img src="${mod.images} " alt="" class="imagen__modal">
+<h1 class="titulo__modal">${mod.title} </h1>
+$<span class="precio__modal">${mod.price} </span><br>`
+;
+console.log(container_modal ,"ja")
+contenedor__compras.append(container_modal)
+
+})
+
 
 
 const modal = document.querySelector(".modal")
@@ -70,7 +101,16 @@ window.onclick = function(event) {
     
     cerrar.close()
   })
-})
+
+  // container_modal.addEventListener(d =>{
+  //   const total_precios = document.createElement("footer")
+  //   total_precios.classList.add("precios")
+  //   total_precios.innerHTML=` ${d.price} +${d.price} </span><br>`
+  //   console.log(total_precios)
+  // })
+  
+  })
+
 
 
 
